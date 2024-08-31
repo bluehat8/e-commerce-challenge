@@ -21,7 +21,22 @@
                 @if (Auth::user()->role !== 'cliente')
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.index')">
-                            {{ __('Products') }}
+                            {{ __('Productos') }}
+                        </x-nav-link>
+                    </div>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('informes.mostrar') }}" :active="request()->routeIs('informes.mostrar')">
+                            {{ __('Informes') }}
+                        </x-nav-link>
+                    </div>
+
+                @endif
+
+                @if (Auth::user()->role == 'cliente')
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('pruducts.client') }}" :active="request()->routeIs('pruducts.client')">
+                            {{ __('Productos disponibles') }}
                         </x-nav-link>
                     </div>
                 @endif

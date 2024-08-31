@@ -1,4 +1,3 @@
-<!-- resources/views/products/products.blade.php -->
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -27,8 +26,8 @@
                 </thead>
                 <tbody>
                     @foreach($productos as $producto)
-                    <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors duration-200">
-                        <td class="px-6 py-4">{{ $producto->nombre }}</td>
+                    <tr class="border-b text-gray-600 border-gray-200 hover:bg-gray-50 transition-colors duration-200">
+                        <td class="px-6 py-4 ">{{ $producto->nombre }}</td>
                         <td class="px-6 py-4">{{ $producto->descripcion }}</td>
                         <td class="px-6 py-4">{{ $producto->precio }} {{ $producto->divisa }}</td>
                         <td class="px-6 py-4">{{ $producto->costo_fabricacion }} {{ $producto->divisa }}</td>

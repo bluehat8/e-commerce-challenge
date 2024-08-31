@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SalesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,6 +24,15 @@ Route::middleware([
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     Route::get('/create-products', [ProductController::class, 'create'])->name('products.create');
     Route::post('/store-products', [ProductController::class, 'store'])->name('products.store');
+
+    Route::get('/informes', [SalesController::class, 'generar'])->name('informes.mostrar');
+
+
+    //Client
+
+    Route::get('/product-list', [ProductController::class, 'client_index'])->name('pruducts.client');
+    Route::get('/product/{id}/purchase', [SalesController::class, 'showPurchaseForm'])->name('purchase.form');
+    Route::post('/ventas/comprar/{id}', [SalesController::class, 'comprar'])->name('ventas.comprar');
 
 });
 

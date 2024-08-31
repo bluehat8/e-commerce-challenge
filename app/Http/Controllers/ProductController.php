@@ -14,6 +14,13 @@ class ProductController extends Controller
         return view('products.products', compact('productos'));
     }
 
+    public function client_index()
+    {
+        $productos = Product::all();
+        return view('product-client.list-products', compact('productos'));
+    }
+
+
     public function create()
     {
         return view('products.store');
