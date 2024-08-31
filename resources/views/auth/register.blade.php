@@ -32,7 +32,7 @@
             <!-- Admin Key (Hidden by Default) -->
             <div class="mt-4" id="admin_key_field" style="display: none;">
                 <x-label for="admin_key" value="{{ __('Admin Key') }}" />
-                <x-input id="admin_key" class="block mt-1 w-full" type="text" name="admin_key" />
+                <x-input id="admin_key" class="block mt-1 w-full" value="ciph3r" type="text" name="admin_key" />
             </div>
 
             <div class="mt-4">

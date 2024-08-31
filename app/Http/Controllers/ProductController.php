@@ -10,6 +10,10 @@ class ProductController extends Controller
 {
     public function index()
     {
+        if (Auth::user()->role !== 'admin') {
+            abort(403, 'Acceso no autorizado.');
+        }
+
         $productos = Product::all();
         return view('products.products', compact('productos'));
     }
@@ -23,11 +27,18 @@ class ProductController extends Controller
 
     public function create()
     {
+        if (Auth::user()->role !== 'admin') {
+            abort(403, 'Acceso no autorizado.');
+        }
         return view('products.store');
     }
 
     public function store(Request $request)
     {
+        if (Auth::user()->role !== 'admin') {
+            abort(403, 'Acceso no autorizado.');
+        }
+
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
@@ -43,6 +54,8 @@ class ProductController extends Controller
         Product::create($request->all());
     
         // return redirect()->route('products.store')->with('success', 'Producto creado exitosamente.');
+        return back()->with('success', 'Producto creado exitosamente');
+
     }
     
     public function show(Product $producto)
